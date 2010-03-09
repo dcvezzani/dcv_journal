@@ -1,0 +1,64 @@
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (12.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (4.6ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateEntries (20100309045217)
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCREATE TABLE "entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" date, "content" text, "tags" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100309045217')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("entries")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EntriesController#index (for 10.0.1.3 at 2010-03-09 00:05:50) [GET]
+  [4;36;1mEntry Load (0.8ms)[0m   [0;1mSELECT * FROM "entries" [0m
+Rendering template within layouts/entries
+Rendering entries/index
+Completed in 108ms (View: 103, DB: 1) | 200 OK [http://10.0.1.3/entries]
+
+
+Processing EntriesController#new (for 10.0.1.3 at 2010-03-09 00:05:52) [GET]
+Rendering template within layouts/entries
+Rendering entries/new
+Completed in 236ms (View: 231, DB: 0) | 200 OK [http://10.0.1.3/entries/new]
+
+
+Processing EntriesController#create (for 10.0.1.3 at 2010-03-09 00:06:03) [POST]
+  Parameters: {"authenticity_token"=>"UjyeKRfuORbQ5kuXS0qgDtSbJ1cbnx/B5CucCbzD2Rg=", "entry"=>{"date(1i)"=>"2010", "date(2i)"=>"3", "date(3i)"=>"9", "content"=>"hello there", "tags"=>"greeting"}, "commit"=>"Create"}
+  [4;35;1mEntry Create (37.6ms)[0m   [0mINSERT INTO "entries" ("date", "content", "tags", "created_at", "updated_at") VALUES('2010-03-09', 'hello there', 'greeting', '2010-03-09 05:06:03', '2010-03-09 05:06:03')[0m
+Redirected to http://10.0.1.3:3000/entries/1
+Completed in 50ms (DB: 38) | 302 Found [http://10.0.1.3/entries]
+
+
+Processing EntriesController#show (for 10.0.1.3 at 2010-03-09 00:06:03) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mEntry Load (0.2ms)[0m   [0;1mSELECT * FROM "entries" WHERE ("entries"."id" = 1) [0m
+Rendering template within layouts/entries
+Rendering entries/show
+Completed in 32ms (View: 27, DB: 0) | 200 OK [http://10.0.1.3/entries/1]
+
+
+Processing EntriesController#index (for 10.0.1.3 at 2010-03-09 00:06:06) [GET]
+  [4;35;1mEntry Load (0.5ms)[0m   [0mSELECT * FROM "entries" [0m
+Rendering template within layouts/entries
+Rendering entries/index
+Completed in 9ms (View: 5, DB: 0) | 200 OK [http://10.0.1.3/entries]

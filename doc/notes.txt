@@ -1,0 +1,10 @@
+rails journal
+cd journal
+script/generate scaffold Entry date:date content:text tags:string
+rake db:migrate
+
+#http://hivelogic.com/articles/compiling-ruby-rubygems-and-rails-on-snow-leopard
+#ftp://ftp.ruby-lang.org/pub/ruby/
+#http://files.rubyforge.vm.bytemark.co.uk/rubygems/
+#http://git-scm.com/download
+#gem install mongrel --source http://gems.rubyinstaller.org

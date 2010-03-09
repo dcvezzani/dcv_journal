@@ -1,0 +1,18 @@
+<p>
+  <b>Date:</b>
+  <%=h @entry.date %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%=h @entry.content %>
+</p>
+
+<p>
+  <b>Tags:</b>
+  <%=h @entry.tags %>
+</p>
+
+
+<%= link_to 'Edit', edit_entry_path(@entry) %> |
+<%= link_to 'Back', entries_path %>
